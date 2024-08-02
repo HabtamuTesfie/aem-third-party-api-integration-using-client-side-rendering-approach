@@ -2,8 +2,9 @@
   <div class="edit-mode-description">
     <h2>Provider List Component</h2>
     <p>This component displays a list of medical providers retrieved from a third-party API. In author mode, this placeholder text provides information about the component's functionality.</p>
-    <p>When this component is rendered, it fetches and displays the provider details such as name, specialty, facility, contact information, and more. Ensure that the API endpoint is correctly configured in the component's dialog settings.</p>
-    <p>Note: This message is only visible in edit mode.</p>
+    <p>When this component is rendered in publish mode, it fetches and displays the provider details such as name, specialty, facility, contact information, and more. </p>
+    <p>Ensure that the API endpoint is correctly configured on the configuration manager (http://localhost:4502/system/console/configMgr) page.</p>
+    <p>Note: This message is only visible in edit mode. In publish mode, when the page is opened using "view as published," the provider information will be visible.</p>
   </div>
 </sly>
 <sly data-sly-test="${!wcmmode.edit}">
@@ -11,3 +12,5 @@
     <app-root></app-root>
   </div>
 </sly>
+
+

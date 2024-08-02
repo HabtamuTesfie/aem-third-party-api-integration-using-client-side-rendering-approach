@@ -1,27 +1,126 @@
-# Ui.Frontend
+# AEM Third-Party API Integration Using Client Side Rendering Approach
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
+This project demonstrates how to integrate a third-party API with Adobe Experience Manager (AEM) using OSGi services and Sling Servlets. Additionally, it outlines an approach for client-side rendering using Angular.
+## Prerequisites
 
-## Development server
+- **Java 11**: Ensure that Java 11 is installed on your machine.
+- **Maven 3.8.5**: Ensure that Maven 3.8.5 is installed on your machine.
+- AEM Author instance running locally.
+- **Node.js and npm**: Ensure that Node.js and npm are installed on your machine.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+Follow these steps to set up and test the project locally.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 1. Run AEM Author Instance
 
-## Build
+Ensure that your AEM Author instance is running on your local machine.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 2. Build and Install the Project
 
-## Running unit tests
+Navigate to the root directory of the project and run the following Maven command:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```sh
+mvn clean install -PautoInstallPackage
+```
+## 3. Create Mock API Data
 
-## Running end-to-end tests
+1. Go to [Mocki.io](https://mocki.io).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Create a new mock API URL with the following JSON data:
 
-## Further help
+    ```json
+    {
+        "medical_providers": [
+            {
+                "id": 1,
+                "first_name": "John",
+                "middle_name": "Michael",
+                "last_name": "Doe",
+                "facility": "Anytown Cardiology Clinic",
+                "specialty": "Cardiology",
+                "image": "https://example.com/dr-john-doe.jpg",
+                "phone": "555-1234",
+                "email": "john.doe@clinic.com",
+                "location": {
+                    "address": "123 Main St",
+                    "city": "Anytown",
+                    "state": "CA",
+                    "zip": "12345"
+                },
+                "credentials": {
+                    "medical_school": "University of Medicine",
+                    "board_certifications": [
+                        "American Board of Internal Medicine",
+                        "American Board of Cardiovascular Disease"
+                    ],
+                    "years_of_experience": 15
+                },
+                "reviews": [
+                    {
+                        "rating": 4.8,
+                        "comment": "Dr. Doe was very knowledgeable and took the time to explain everything clearly.",
+                        "author": "Jane Smith"
+                    },
+                    {
+                        "rating": 4.5,
+                        "comment": "I had a great experience with Dr. Doe. He provided excellent care and was very patient.",
+                        "author": "Michael Johnson"
+                    }
+                ],
+                "services": [
+                    {
+                        "name": "Cardiac Consultation",
+                        "description": "Comprehensive evaluation and treatment of heart-related conditions.",
+                        "price": 250
+                    },
+                    {
+                        "name": "Echocardiogram",
+                        "description": "Diagnostic imaging test to evaluate the structure and function of the heart.",
+                        "price": 350
+                    },
+                    {
+                        "name": "Stress Test",
+                        "description": "Evaluation of the heart's response to physical activity.",
+                        "price": 300
+                    }
+                ]
+            }
+        ]
+    }
+    ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 4. Configure the Provider API URL
+
+1. Open your web browser and go to `http://localhost:4502/system/console/configMgr`.
+
+2. Search for "Provider Service Configuration url".
+
+3. Click on the configuration and then click "Edit".
+
+4. Fill in the "Provider API URL" field with the mock API URL you created earlier.
+
+5. Click "Save".
+
+
+## 5. Test Using Sample Content
+
+To verify that the integration is working correctly, follow these steps:
+
+1. Open your web browser and navigate to [http://localhost:4502/aem/start.html](http://localhost:4502/aem/start.html).
+
+2. Go to the **Sites** section.
+
+3. Expand the `aem-third-party-api-integration-using-csr` folder.
+
+4. Expand either the **English** or **Spanish** folder, depending on your preference.
+
+5. Select the `PROVIDRS` page.
+
+6. Click **Edit** to open the page editor.
+
+7. In the page editor, click **"Page Information"** on the top left side and select **"View as published"**.
+
+8. You should now be able to see Providers Information on the page.
+
+This will allow you to test the component and verify that it is functioning as expected.
