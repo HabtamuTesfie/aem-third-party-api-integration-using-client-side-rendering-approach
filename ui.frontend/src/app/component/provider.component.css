@@ -1,0 +1,69 @@
+.provider-container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.provider-list {
+  list-style: none;
+  padding: 0;
+}
+
+.provider-item {
+  display: flex;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.provider-item img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.provider-item-details {
+  flex: 1;
+}
+
+.provider-item-details h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+}
+
+.provider-item-details p {
+  margin: 5px 0;
+}
+
+.facility {
+  font-weight: bold;
+}
+
+.contact-info {
+  color: #0073e6;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.contact-info:hover {
+  text-decoration: underline;
+}
+
+.provider-item-reviews, .provider-item-services {
+  margin-top: 20px;
+}
+
+.provider-reviews-list, .provider-services-list {
+  list-style: none;
+  padding: 0;
+}
+
+.provider-reviews-item, .provider-services-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}

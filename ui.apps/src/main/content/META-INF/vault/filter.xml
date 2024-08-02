@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/aem-third-party-api-integration-using-csr/clientlibs"/>
+    <filter root="/apps/aem-third-party-api-integration-using-csr/components"/>
+    <filter root="/apps/aem-third-party-api-integration-using-csr/i18n"/>
+</workspaceFilter>
